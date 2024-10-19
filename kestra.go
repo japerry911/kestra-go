@@ -57,14 +57,10 @@ func (k *KestraLogger) Info(message string) {
 	k.logMessage("INFO", message)
 }
 
-func (k *KestraLogger) Warning(message string) {
-	k.logMessage("WARNING", message)
+func (k *KestraLogger) Warn(message string) {
+	k.logMessage("WARN", message)
 }
 
 func (k *KestraLogger) Error(message string) {
 	k.logMessage("ERROR", message)
-}
-
-func (k *KestraLogger) Critical(message string) {
-	k.logMessage("CRITICAL", message)
 }
