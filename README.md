@@ -10,4 +10,20 @@ The roadmap for this package to add better documentation and unit tests in the n
 
 ### Installation
 
-`go get github.com/japerry911/kestra-go@v0.1.2`
+`go get github.com/japerry911/kestra-go@v0.1.3`
+
+### Example
+
+```go
+import "github.com/japerry911/kestra-go"
+
+k := kestra.NewKestra()
+
+l := k.Logger
+
+l.Trace("Test Trace")
+l.Debug("Test Debug")
+l.Info("Test Info")
+l.Warn("Test Warning")
+l.Error("Test Error")
+```
