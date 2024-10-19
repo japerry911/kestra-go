@@ -10,4 +10,4 @@ The roadmap for this package to add better documentation and unit tests in the n
 
 ### Installation
 
-`go get -u github.com/japerry911/kestra-go@v0.1.0`
+`go get github.com/japerry911/kestra-go@v0.1.2`
