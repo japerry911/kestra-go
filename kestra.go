@@ -2,10 +2,15 @@ package kestra
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"os"
 	"time"
 )
+
+type outputsPayload struct {
+	Outputs map[string]interface{} `json:"outputs"`
+}
 
 type Kestra struct {
 	Logger *KestraLogger
@@ -63,4 +68,18 @@ func (k *KestraLogger) Warn(message string) {
 
 func (k *KestraLogger) Error(message string) {
 	k.logMessage("ERROR", message)
+}
+
+func Outputs(outputs map[string]interface{}) {
+	if outputs == nil {
+		log.Println("Warning: Outputs called with nil map.")
+		return
+	}
+	payload := outputsPayload{Outputs: outputs}
+	jsonBytes, err := json.Marshal(payload)
+	if err != nil {
+		log.Printf("Error marshaling outputs to JSON: %v\n", err)
+		return
+	}
+	fmt.Printf("::%s::\n", string(jsonBytes))
 }
